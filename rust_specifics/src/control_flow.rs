@@ -50,6 +50,6 @@ fn loop_with_labels(){
             remaining -= 1;
         }
         count += 1;
-    }
+    };
         println!("End count = {count}");
 }

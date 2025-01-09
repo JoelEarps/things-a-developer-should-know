@@ -1,4 +1,4 @@
-Sorting Algorithms
+# Sorting Algorithms
 
 On the whole there are 5 different types:
 

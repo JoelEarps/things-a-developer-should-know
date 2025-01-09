@@ -3,4 +3,11 @@ name = "things-a-developer-should-know"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
+[workspaces]
+members = [
+    "algorithms",
+    "data_structures",
+    "rust_specifics",
+    "leetcode_questions"
+]
+
