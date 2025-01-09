@@ -3,7 +3,7 @@ name = "things-a-developer-should-know"
 version = "0.1.0"
 edition = "2021"
 
-[workspaces]
+[workspace]
 members = [
     "algorithms",
     "data_structures",
