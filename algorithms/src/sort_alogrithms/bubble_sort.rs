@@ -4,10 +4,11 @@ During each iteration it will compare two adjacent elements and bubble i.e. move
 This process continues in a loop until all the elements are in ascending order with the smallest being on the left and larger to the right 
 
 Advantages:
-1. Simple
+1. Simple to implement and understand
+2. Memory usage is low and consistent, doesn't require lots to perform.
 
 Disadvantages:
-1. Slow
+1. Slow - speed directly related to the length of list
 */
 
 pub fn bubble_sort(array_to_be_sorted: &mut Vec<i64>) {
