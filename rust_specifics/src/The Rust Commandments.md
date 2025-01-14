@@ -2,20 +2,41 @@ Key Principles in Rust
 
 ## Ownership
 
-What are the rules
+Each Value in Rust has an owner
+There can only be one owner at a time
+When the owner goes out of scope the value will be dropped
+If something takes ownership, it will be `moved` - thus rendering the place it moved from as redundant and freed back to the program.
 
-How to employ them
+Things to remember and ask yourself:
+1. Is this data a fixed size at compile time, i.e. stack or the heap?
+2. Do i need to pass the data into a different scope?
+3. Passing and returning data to and from functions can result in a change of ownership.
+4. Always check for scope change
+5. Declaring a variable from another variable will render the free the initial variable.
+
+Often you will need to copy or clone data to be able to pass it without ownership:
+
+### Copy
+
+Often used for scalar data types or compound types with inner scalar values i.e. values with a fixed size on the stack. 
+Relatively inexpensive to perform.
+
+### Clone 
+
+A super trait of copy, often used for heap data or for types that cannot be copied.
+Can be very expensive.
 
 ## Borrowing
 
-What is it?
+Passing a value to a different part of the program without the need to take ownership of it.
 
 At any given time you can have either one mutable reference or unlimited immutable references must always be valid
 
+The rules of borrowing and references:
 
-How to do proper borrowing
+1. At any given time you can have either one mutable reference or unlimited immutable references
+2. References must always be valid
 
-1. References
 
 ## Lifetimes
 
