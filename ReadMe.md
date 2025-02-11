@@ -10,7 +10,7 @@ This repo is to designed to provide a list of topics and implementations of such
 
 ## Repo Structure
 
-Each repo has its own
+This is a cargo workspace with tests to demonstrate functionality; in order to run functionality you have to run a command, specifying the target workspace that you want to test and the name/ substring of the tests you would like to run.
 
 ### General Notes to be sorted
 
