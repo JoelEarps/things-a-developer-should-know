@@ -17,7 +17,3 @@ version = "0.1.0"
 [[package]]
 name = "rust_specifics"
 version = "0.1.0"
-
-[[package]]
-name = "things-a-developer-should-know"
-version = "0.1.0"
