@@ -22,6 +22,12 @@ struct TradeFee {
 
 type UserTradeFees = Vec<TradeFee>;
 
+enum InsertPoint {
+    Start,
+    End,
+    Between(usize, usize)
+}
+
 // The problem arose when I was trying to look for where a trade amount fit in when looking for associated prices
 fn find_trade_amount(trade_fees: &[TradeFee], target_volume_for_placement: &usize) -> Option<usize> {
     if trade_fees.is_empty() {

@@ -5,6 +5,7 @@ mod slices;
 mod lifetimes;
 mod testing;
 mod streams;
+mod tokio_specifics;
 
 fn main() {
     println!("Hello, world!");
