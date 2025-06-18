@@ -114,6 +114,10 @@ name = "data_structures"
 version = "0.1.0"
 
 [[package]]
+name = "design_patterns"
+version = "0.1.0"
+
+[[package]]
 name = "displaydoc"
 version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -333,6 +337,10 @@ dependencies = [
  "tokio-util",
  "tracing",
 ]
+
+[[package]]
+name = "hackerrank"
+version = "0.1.0"
 
 [[package]]
 name = "hashbrown"

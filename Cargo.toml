@@ -4,5 +4,5 @@ members = [
     "data_structures",
     "rust_specifics",
     "leetcode_questions"
-]
+, "hackerrank", "design_patterns"]
 

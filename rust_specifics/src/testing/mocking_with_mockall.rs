@@ -55,7 +55,7 @@ impl<T: TraitsToBeMocked> ServiceWrapper<T> {
 #[cfg(test)]
 mod mockall_unit_tests {
     use super::*;
-    use mockall::predicate::*;
+    
 
     #[test]
     fn mockall_test() {
