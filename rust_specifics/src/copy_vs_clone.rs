@@ -12,7 +12,7 @@ fn copy_demo(){
 // Taken directly from https://doc.rust-lang.org/rust-by-example/trait/clone.html
 #[derive(Clone, Debug)]
 struct Pair(Box<i32>, Box<i32>);
-fn clone_demo(){
+fn clone_vs_move_demo(){
     // Instantiate `Pair`
     let pair = Pair(Box::new(1), Box::new(2));
     println!("original: {:?}", pair);
@@ -38,13 +38,19 @@ fn clone_demo(){
     println!("clone: {:?}", cloned_pair);
 }
 
+// Copy vs Clone in the eyes of the program
+/*
+Performance considerations
+How do you know when something is moved or copied?
+*/
+
 #[cfg(test)]
 mod test {
     use super::*;
 
     #[test]
     fn test_clone_demo(){
-        clone_demo();
+        clone_vs_move_demo();
     }
 
     #[test]

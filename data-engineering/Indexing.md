@@ -27,7 +27,7 @@ Providing you have `psgl` installed running the following will perform this for 
 
 Now if you access the postgres container you should see:
 
-```sql 
+```sql
 
 mydatabase-# \dt
          List of relations
@@ -77,7 +77,6 @@ You want to avoid full table scans. And the more complex queries you do e.g. `LI
 Now lets look at indexing
 
 create index on age that will create a binary tree like query
-
 
 ```sql
 CREATE INDEX idx_big_data_age ON big_data(age);
