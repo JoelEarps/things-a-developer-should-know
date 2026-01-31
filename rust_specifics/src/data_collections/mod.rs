@@ -1,4 +1,1 @@
-mod searching_collections;
-mod slices;
-mod hash_maps;
-mod vecs;
+pub mod arrays_and_hashing;

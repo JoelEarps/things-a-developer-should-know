@@ -16,7 +16,10 @@ fn function_using_string_literals(test_string_literal: &str) -> &str {
 }
 
 fn playing_with_string_references(string_literal_for_ownership_demo: &str) {
-    println!("I never wanted to own this string: {}", string_literal_for_ownership_demo);
+    println!(
+        "I never wanted to own this string: {}",
+        string_literal_for_ownership_demo
+    );
 }
 
 fn working_with_strings(mut test_string_type: String) -> String {
@@ -37,22 +40,24 @@ fn working_with_strings(mut test_string_type: String) -> String {
     test_string_type
 }
 
-fn playing_with_strings(string_input_for_ownership_demo: &String){
-    println!("If I wanted to, I could own the string or be a clone: {string_input_for_ownership_demo}")
+fn playing_with_strings(string_input_for_ownership_demo: &String) {
+    println!(
+        "If I wanted to, I could own the string or be a clone: {string_input_for_ownership_demo}"
+    )
 }
 
 #[cfg(test)]
-mod tests{
+mod tests {
     use super::*;
 
     #[test]
-    fn string_reference_tests(){
+    fn string_reference_tests() {
         let slice = function_using_string_literals("Hello Joel");
         assert_eq!(slice, "Hell");
     }
 
     #[test]
-    fn std_string_tests(){
+    fn std_string_tests() {
         let ownership_returned = working_with_strings(String::from("What do we want? "));
         assert_eq!(ownership_returned, "What do we want? Mutable Ownership");
     }

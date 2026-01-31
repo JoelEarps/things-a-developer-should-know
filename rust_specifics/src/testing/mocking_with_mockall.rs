@@ -28,9 +28,8 @@ impl ProdExchangeClient {
 trait TraitsToBeMocked {
     fn get_test(&self) -> String;
 
-    fn get_response(&self) -> Result<String, reqwest::Error>{
-        Ok(reqwest::blocking::get("https://www.rust-lang.org")?
-        .text()?)
+    fn get_response(&self) -> Result<String, reqwest::Error> {
+        Ok(reqwest::blocking::get("https://www.rust-lang.org")?.text()?)
     }
 }
 
@@ -55,7 +54,6 @@ impl<T: TraitsToBeMocked> ServiceWrapper<T> {
 #[cfg(test)]
 mod mockall_unit_tests {
     use super::*;
-    
 
     #[test]
     fn mockall_test() {
@@ -67,6 +65,9 @@ mod mockall_unit_tests {
 
         let service_under_test = ServiceWrapper::new(mock);
         assert_eq!("mocked_test".to_string(), service_under_test.get_test());
-        assert_eq!("mocked_response".to_string(), service_under_test.get_response().unwrap());
+        assert_eq!(
+            "mocked_response".to_string(),
+            service_under_test.get_response().unwrap()
+        );
     }
 }

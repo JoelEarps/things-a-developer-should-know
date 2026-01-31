@@ -26,7 +26,10 @@ impl DefaultTrait for ProdExchangeClient {
 #[cfg(test)]
 impl DefaultTrait for MockExchangeClient {
     fn new(input: &str) -> Self {
-        println!("MockExchangeClient new called with input: {}, this will be overrided to create a mock", input);
+        println!(
+            "MockExchangeClient new called with input: {}, this will be overrided to create a mock",
+            input
+        );
         MockExchangeClient {
             test: "mocked_client".to_string(),
         }
@@ -52,7 +55,9 @@ struct ServiceWrapper<T: TraitsToBeMocked + DefaultTrait> {
 
 impl<T: TraitsToBeMocked + DefaultTrait> ServiceWrapper<T> {
     fn generic_new(value: &str) -> ServiceWrapper<T> {
-        Self { client: T::new(value) }
+        Self {
+            client: T::new(value),
+        }
     }
 
     fn get_test(&self) -> String {
@@ -67,14 +72,15 @@ impl<T: TraitsToBeMocked + DefaultTrait> ServiceWrapper<T> {
 #[cfg(test)]
 mod mocking_tests {
     use super::*;
-  
-#[test]
-fn manual_mocks_with_generics() {
-    let service_wrapper_mock = ServiceWrapper::<MockExchangeClient>::generic_new("None Mock input");
-    let service_wrapper_prod = ServiceWrapper::<ProdExchangeClient>::generic_new("Prod input");
-    let mocked = service_wrapper_mock.get_test();
-    let prod = service_wrapper_prod.get_test();
-    assert_eq!(prod, "Prod input");
-    assert_eq!(mocked, "mocked_data");
-}
+
+    #[test]
+    fn manual_mocks_with_generics() {
+        let service_wrapper_mock =
+            ServiceWrapper::<MockExchangeClient>::generic_new("None Mock input");
+        let service_wrapper_prod = ServiceWrapper::<ProdExchangeClient>::generic_new("Prod input");
+        let mocked = service_wrapper_mock.get_test();
+        let prod = service_wrapper_prod.get_test();
+        assert_eq!(prod, "Prod input");
+        assert_eq!(mocked, "mocked_data");
+    }
 }

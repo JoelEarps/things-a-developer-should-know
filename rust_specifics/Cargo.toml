@@ -8,6 +8,7 @@ futures = "0.3.31"
 mockall = "0.13.1"
 reqwest = { version = "0.12.15", features = ["blocking"]}
 tokio = { version = "1.45.0", features = ["full"] }
+custom-macros = { path = "../custom-macros" }
 
 [features]
 streaming = []

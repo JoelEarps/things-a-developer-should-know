@@ -4,7 +4,7 @@ Streams are an iterator when seen from the async world
 Iterator<MyItem> - is a sequence of 0..N objects of my items.
 Usually comes up when you want to iterate over a collection
 In Rust an iterator has two requirements:
-1. An assignable type 
+1. An assignable type
 2. The next method which returns an Option<T> where T is the type of the item
 The reason for an option is in case you have no elements left and the iterator is now exhausted
 
@@ -34,14 +34,18 @@ Make sure you pin a stream before using it
 
 use futures::stream::{self, StreamExt};
 
-async fn streams_iter_demo(){
+async fn streams_iter_demo() {
     let stream = stream::iter(vec![17, 19]);
-    assert_eq!(vec![17, 19], stream.collect::<Vec<i32>>().await);   
+    assert_eq!(vec![17, 19], stream.collect::<Vec<i32>>().await);
 }
 
-async fn stream_repeat_with(){
+async fn stream_repeat_with() {
     let mut curr = 1;
-    let mut pow2 = stream::repeat_with(|| { let tmp = curr; curr *= 2; tmp });
+    let mut pow2 = stream::repeat_with(|| {
+        let tmp = curr;
+        curr *= 2;
+        tmp
+    });
 
     assert_eq!(Some(1), pow2.next().await);
     assert_eq!(Some(2), pow2.next().await);
@@ -49,11 +53,7 @@ async fn stream_repeat_with(){
     assert_eq!(Some(8), pow2.next().await);
 }
 
-fn custom_iterator_demo(){
-
-}
+fn custom_iterator_demo() {}
 
 #[cfg(test)]
-mod stream_tests {
-    
-}
+mod stream_tests {}
