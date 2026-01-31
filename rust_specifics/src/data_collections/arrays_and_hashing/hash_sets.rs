@@ -1,4 +1,4 @@
-/* 
+/*
 Hash sets are a collection of unique values, they are very similar to hashmaps but they only store keys and not values
 It is a form of a hash table, typically used to see if a value exists in the set or not
 A hash set stores the unique elements in buckets according to the elements hash code.
@@ -34,12 +34,9 @@ mod test {
         hashset.insert(1);
         hashset.insert(2);
         hashset.insert(1);
-        
-       println!("{:?}", hashset.len()); // Should be 2 as 1 is duplicate
 
+        println!("{:?}", hashset.len()); // Should be 2 as 1 is duplicate
 
-       // Fun things and combinators you can use
-
-
+        // Fun things and combinators you can use
     }
 }

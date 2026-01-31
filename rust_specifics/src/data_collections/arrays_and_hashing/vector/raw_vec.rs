@@ -78,7 +78,10 @@ impl<T> RawVec<T> {
             (new_cap, new_layout)
         };
 
-        assert!(new_layout.size() <= isize::MAX as usize, "Allocation too large");
+        assert!(
+            new_layout.size() <= isize::MAX as usize,
+            "Allocation too large"
+        );
 
         let new_ptr = if self.cap == 0 {
             unsafe { alloc::alloc(new_layout) }

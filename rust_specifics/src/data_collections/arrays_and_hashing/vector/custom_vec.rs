@@ -131,12 +131,8 @@ impl<T> CustomVec<T> {
     /// Sets len to 0 immediately — if Drain is forgotten, we leak elements but avoid double-drop.
     pub fn drain(&mut self) -> Drain<'_, T> {
         let len = self.len;
-        let iter = unsafe {
-            RawValIter::new(std::slice::from_raw_parts(
-                self.buf.ptr().as_ptr(),
-                len,
-            ))
-        };
+        let iter =
+            unsafe { RawValIter::new(std::slice::from_raw_parts(self.buf.ptr().as_ptr(), len)) };
         self.len = 0;
         Drain {
             vec: PhantomData,
@@ -153,10 +149,8 @@ impl<T> Drop for CustomVec<T> {
                 if elem_size == 0 {
                     // ZST: we never allocated. Drop each "element" — for ZST this runs drop len times.
                     // The pointer can be dangling; drop_in_place doesn't dereference for ZST.
-                    let slice = std::slice::from_raw_parts_mut(
-                        NonNull::<T>::dangling().as_ptr(),
-                        self.len,
-                    );
+                    let slice =
+                        std::slice::from_raw_parts_mut(NonNull::<T>::dangling().as_ptr(), self.len);
                     ptr::drop_in_place(slice);
                 } else {
                     ptr::drop_in_place(std::slice::from_raw_parts_mut(
@@ -247,8 +241,8 @@ impl<T> Iterator for RawValIter<T> {
 
     fn size_hint(&self) -> (usize, Option<usize>) {
         let elem_size = mem::size_of::<T>();
-        let len = (self.end as usize - self.start as usize)
-            / if elem_size == 0 { 1 } else { elem_size };
+        let len =
+            (self.end as usize - self.start as usize) / if elem_size == 0 { 1 } else { elem_size };
         (len, Some(len))
     }
 }
