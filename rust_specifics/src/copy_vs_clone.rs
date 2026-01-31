@@ -1,7 +1,8 @@
+// Keywords: Copy, Clone, derive, shallow copy, deep copy, heap, stack
 // copy, clone (heap vs stack)
 // When data has a known size and is stored on the stack, copies are quick to make. Therefore we do not need to invalidate data and free memory, therefore you do not invalidate the first variable as with above.
 
-fn copy_demo(){
+fn copy_demo() {
     let x = 5;
     let y = x;
 
@@ -12,7 +13,7 @@ fn copy_demo(){
 // Taken directly from https://doc.rust-lang.org/rust-by-example/trait/clone.html
 #[derive(Clone, Debug)]
 struct Pair(Box<i32>, Box<i32>);
-fn clone_vs_move_demo(){
+fn clone_vs_move_demo() {
     // Instantiate `Pair`
     let pair = Pair(Box::new(1), Box::new(2));
     println!("original: {:?}", pair);
@@ -49,12 +50,12 @@ mod test {
     use super::*;
 
     #[test]
-    fn test_clone_demo(){
+    fn test_clone_demo() {
         clone_vs_move_demo();
     }
 
     #[test]
-    fn test_copy_demo(){
+    fn test_copy_demo() {
         copy_demo();
     }
 }

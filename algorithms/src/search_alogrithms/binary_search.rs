@@ -1,11 +1,12 @@
+// Keywords: binary search, O(log n), sorted array, divide and conquer
 // Problem context
 // https://spin.atomicobject.com/learning-rust-binary-search/
 
-/* 
+/*
 Binary search works on a sorted list of data and reduces the amount the search area each iteration
-It works by comparing the middle value of the array against the value being searched for. 
-If the value in the middle is equal to the searched value, it returns the correct value. 
-If the value being searched for is higher than the middle of the array, 
+It works by comparing the middle value of the array against the value being searched for.
+If the value in the middle is equal to the searched value, it returns the correct value.
+If the value being searched for is higher than the middle of the array,
 it returns the higher half of the list. This is vice versa for the lower half of the list.
 It does this repeatedly reducing the search area until the value is found, or it reaches either extreme.
 There are three examples below:
@@ -16,8 +17,8 @@ There are three examples below:
 
 #[derive(Debug)]
 struct TradeFee {
-    volume: usize, 
-    total_price: usize
+    volume: usize,
+    total_price: usize,
 }
 
 type UserTradeFees = Vec<TradeFee>;
@@ -25,11 +26,14 @@ type UserTradeFees = Vec<TradeFee>;
 enum InsertPoint {
     Start,
     End,
-    Between(usize, usize)
+    Between(usize, usize),
 }
 
 // The problem arose when I was trying to look for where a trade amount fit in when looking for associated prices
-fn find_trade_amount(trade_fees: &[TradeFee], target_volume_for_placement: &usize) -> Option<usize> {
+fn find_trade_amount(
+    trade_fees: &[TradeFee],
+    target_volume_for_placement: &usize,
+) -> Option<usize> {
     if trade_fees.is_empty() {
         return None;
     }
@@ -39,7 +43,6 @@ fn find_trade_amount(trade_fees: &[TradeFee], target_volume_for_placement: &usiz
     let mut result: Option<usize> = None;
 
     while lower_bound <= higher_bound {
-        
         println!("The Lower bounds (index) of the search area {}, is currently less than or equal to the higher bounds (index) of the search area ({})", lower_bound, higher_bound);
         let mid = (lower_bound + higher_bound) / 2;
         println!("The mid point of the search vec is at index: {} ", mid);
@@ -66,45 +69,45 @@ fn find_trade_amount(trade_fees: &[TradeFee], target_volume_for_placement: &usiz
     }
     println!("We have reached the end of the binary search algorithm (where either the lower bound is now larger than the higher bound, meaning we place the , the end volume is {:?}", result);
     // The output here is contextual to the search
-    // 1. The output is the volume 
+    // 1. The output is the volume
     // 2. If the output volume is the same as the first index volume, then we insert at the start of the input array
-    // 3. If the output volume is 
+    // 3. If the output volume is
     // To handle this you could return an enum where it tells you where to insert - between to values, at the start or at the end
     result
 }
 
-fn find_vip_tier_rust_idiomatic(){}
+fn find_vip_tier_rust_idiomatic() {}
 
-fn find_vip_tier_with_rust_binary_search_function(){}
+fn find_vip_tier_with_rust_binary_search_function() {}
 
-
-fn find_vip_tier_binary_search_by_key(){}
+fn find_vip_tier_binary_search_by_key() {}
 
 #[cfg(test)]
 mod binary_search_tests {
 
-    static test_struct: &[TradeFee] = &[TradeFee {
-        volume: 1,
-        total_price: 100
-    },
-    TradeFee {
-        volume: 3,
-        total_price: 100
-    },
-    TradeFee {
-        volume: 5,
-        total_price: 100
-    },
-    TradeFee {
-        volume: 7,
-        total_price: 100
-    }
+    static test_struct: &[TradeFee] = &[
+        TradeFee {
+            volume: 1,
+            total_price: 100,
+        },
+        TradeFee {
+            volume: 3,
+            total_price: 100,
+        },
+        TradeFee {
+            volume: 5,
+            total_price: 100,
+        },
+        TradeFee {
+            volume: 7,
+            total_price: 100,
+        },
     ];
 
     use super::*;
-    
+
     #[test]
-    fn raw_binary_search(){
+    fn raw_binary_search() {
         // Could use RSTest here, but not the point right now, maybe add at the end
         let target_volume_1: usize = 6;
         let entry_volume_to_be_inserted_after = find_trade_amount(test_struct, &target_volume_1);

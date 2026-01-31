@@ -1,3 +1,4 @@
+// Keywords: borrowing, references, mutable reference, ownership, scope
 // Scope and validity
 // Can only be one mutable reference to data to prevent data races
 // Using curly braces to create multiple mutable references
@@ -7,9 +8,7 @@ fn references_and_functions() -> u8 {
     6
 }
 
-fn passing_in_a_reference(){
-
-}
+fn passing_in_a_reference() {}
 fn multiple_mutable_references() {
     let mut s = String::from("hello");
 
