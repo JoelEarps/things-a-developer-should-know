@@ -1,4 +1,6 @@
 mod array_ratio;
-mod min_max_sum;
 mod comparison_sorting;
 mod intermediate;
+mod min_max_sum;
+
+pub mod one_hour_tests;
