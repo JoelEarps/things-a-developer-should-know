@@ -5,9 +5,7 @@
 // The root of the tree
 // We Box this function
 struct Tree {
-    root: Option<Box<Node>>
+    root: Option<Box<Node>>,
 }
 
-struct Node {
-
-}
+struct Node {}
