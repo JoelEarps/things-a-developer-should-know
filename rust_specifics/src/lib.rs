@@ -1,3 +1,4 @@
+mod async_rust;
 mod borrowing_and_references;
 mod combinators;
 mod copy_vs_clone;
