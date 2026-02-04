@@ -1,5 +1,9 @@
 # Learning TODO List
 
+**See also:** [IMPLEMENTATION_TODO.md](./IMPLEMENTATION_TODO.md) — consolidated list of everything left to implement, categorised (Fundamentals, Rust, High-performance, Interview prep, Other).
+
+---
+
 ## Data Structures & Algorithms
 
 - [ ] **Min Heap** / Priority Queue

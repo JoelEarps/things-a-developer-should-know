@@ -2,6 +2,41 @@
 
 Use Cmd/Ctrl+F or grep to find files by topic. Each file lists keywords for problems/solutions it addresses.
 
+---
+
+## When to use (data structures & algorithms)
+
+Search for a use case to find which structure or algorithm to use.
+
+| Use when / Use case | Data structure or algorithm | File / topic |
+|---------------------|-----------------------------|--------------|
+| **Need fast lookup by key, no ordering** | HashMap, hash table, unordered map | hash_maps, hash_tables, BTreeMap vs HashMap |
+| **Need sorted keys or range queries** ("all keys between A and B") | BTreeMap, ordered map, red-black tree | std_binary_trees, map vs unordered_map |
+| **Need uniqueness, no duplicates, fast "contains"** | HashSet | hash_sets, hash_maps_and_sets |
+| **Dynamic array, push/pop at end, random access by index** | Vec, vector | vecs_arrays_slices, custom_vec |
+| **Queue: FIFO, add at back remove from front** | Queue, VecDeque (ring buffer) | queues |
+| **Stack: LIFO, push/pop at one end** | Stack, Vec | stacks |
+| **Add/remove at both ends efficiently** | VecDeque (ring buffer), not linked list | queues, VecDeque |
+| **O(1) merge two lists, lock-free queue, intrusive list** | Singly linked list | linked_lists, SPL list |
+| **Contiguous fixed-size collection** | Array, [T; N], slice | vecs_arrays_slices, slices |
+| **Subarray/substring problems, max sum in window** | Sliding window | sliding_window |
+| **Sorted data, find element or insertion point** | Binary search | binary_search |
+| **Two pointers moving toward each other or same direction** | Two pointers, pairwise | pairwise_algorithm |
+| **Shortest path in weighted graph** | Dijkstra | djikstra |
+| **Explore graph level by level, shortest path unweighted** | BFS, queue | breadth_first_search |
+| **Explore graph depth-first, cycle detection, backtracking** | DFS, stack or recursion | depth_first_search |
+| **Top K frequent elements** | Heap (priority queue), or bucket sort | top_k_frequent_elements |
+| **Merge overlapping intervals** | Sort then merge | merge_and_sort_intervals |
+| **Rate limiting, throttle requests** | Rate limiter, token bucket, sliding window | write_a_rate_limiter |
+| **State machine, illegal states unrepresentable** | Typestate | typestate |
+| **High-throughput I/O, avoid syscall overhead** | io_uring, kernel bypass | iou_ring, kernel_bypass |
+| **Shared counter or flag across threads, no lock** | Atomic | atomic |
+| **Protect shared data, one writer or multiple readers** | Mutex, RwLock | atomic vs mutex, HFT-interview-prep |
+| **Types unknown until runtime, heterogeneous collection** | dyn Trait, trait object | dyn_trait |
+| **Types known at compile time, zero-cost abstraction** | Generics, monomorphization | dyn_trait, polymorphism |
+
+---
+
 ## Rust specifics
 
 | File | Keywords |
@@ -26,42 +61,42 @@ Use Cmd/Ctrl+F or grep to find files by topic. Each file lists keywords for prob
 | `rust_specifics/src/feature_flags/*.rs` | feature flags, conditional compilation, strategy pattern |
 | `rust_specifics/src/testing/*.rs` | testing, mocking, mockall, unit test |
 | `rust_specifics/src/memory_management/box_and_pin.rs` | Pin, Unpin, memory layout |
-| `rust_specifics/src/data_collections/arrays_and_hashing/vector/custom_vec.rs` | Vec, CustomVec, Drain, IntoIter, ZST, RawValIter, push, pop, allocation |
-| `rust_specifics/src/data_collections/arrays_and_hashing/vector/raw_vec.rs` | RawVec, allocation, deallocation, ZST, heap, Layout |
-| `rust_specifics/src/data_collections/arrays_and_hashing/hash_maps.rs` | HashMap, hash table, hashing |
-| `rust_specifics/src/data_collections/arrays_and_hashing/hash_sets.rs` | HashSet, set, uniqueness |
-| `rust_specifics/src/data_collections/arrays_and_hashing/hash_tables.rs` | hash table, collision, chaining |
-| `rust_specifics/src/data_collections/arrays_and_hashing/slices.rs` | slice, [T], array |
-| `rust_specifics/src/data_collections/arrays_and_hashing/searching_collections.rs` | search, contains, find |
+| `rust_specifics/src/data_collections/arrays_and_hashing/vector/custom_vec.rs` | Vec, CustomVec, Drain, IntoIter, ZST | dynamic array, push/pop, random access |
+| `rust_specifics/src/data_collections/arrays_and_hashing/vector/raw_vec.rs` | RawVec, allocation, deallocation, ZST, heap, Layout | buffer ownership, grow/shrink |
+| `rust_specifics/src/data_collections/arrays_and_hashing/hash_maps.rs` | HashMap, hash table, hashing | fast lookup by key, key-value store |
+| `rust_specifics/src/data_collections/arrays_and_hashing/hash_sets.rs` | HashSet, set, uniqueness | no duplicates, O(1) contains |
+| `rust_specifics/src/data_collections/arrays_and_hashing/hash_tables.rs` | hash table, collision, chaining | how hashing works, collision handling |
+| `rust_specifics/src/data_collections/arrays_and_hashing/slices.rs` | slice, [T], array | view into Vec/array, no copy |
+| `rust_specifics/src/data_collections/arrays_and_hashing/searching_collections.rs` | search, contains, find | lookup in collections |
 | `rust_specifics/src/async/*.rs` | async, await, Future, Waker, pinning, lock-free |
 | `rust_specifics/src/tokio_specifics/*.rs` | tokio, async runtime, Mutex, channel, spawn, block_on |
 
 ## Algorithms
 
-| File | Keywords |
-|------|----------|
-| `algorithms/src/search_alogrithms/binary_search.rs` | binary search, O(log n), sorted array |
-| `algorithms/src/search_alogrithms/pairwise_algorithm.rs` | pairwise, two pointers |
-| `algorithms/src/sort_alogrithms/bubble_sort.rs` | bubble sort, O(n^2), in-place |
-| `algorithms/src/sort_alogrithms/merge_sort.rs` | merge sort, divide and conquer, O(n log n) |
-| `algorithms/src/graph_alogrithms/breadth_first_search.rs` | BFS, graph, queue |
-| `algorithms/src/graph_alogrithms/depth_first_search.rs` | DFS, graph, stack, recursion |
-| `algorithms/src/graph_alogrithms/djikstra.rs` | Dijkstra, shortest path, weighted graph |
-| `algorithms/src/fixed_point_and_floating_point/fixed_point_maths.rs` | fixed point, floating point, precision |
+| File | Keywords | Use when |
+|------|----------|----------|
+| `algorithms/src/search_alogrithms/binary_search.rs` | binary search, O(log n), sorted array | sorted data, find element or insertion point |
+| `algorithms/src/search_alogrithms/pairwise_algorithm.rs` | pairwise, two pointers | two sum, palindrome, merge two sorted |
+| `algorithms/src/sort_alogrithms/bubble_sort.rs` | bubble sort, O(n^2), in-place | teaching, tiny arrays |
+| `algorithms/src/sort_alogrithms/merge_sort.rs` | merge sort, divide and conquer, O(n log n) | stable sort, linked list sort, external sort |
+| `algorithms/src/graph_alogrithms/breadth_first_search.rs` | BFS, graph, queue | shortest path unweighted, level-order |
+| `algorithms/src/graph_alogrithms/depth_first_search.rs` | DFS, graph, stack, recursion | cycle detection, topological sort, backtracking |
+| `algorithms/src/graph_alogrithms/djikstra.rs` | Dijkstra, shortest path, weighted graph | weighted shortest path, non-negative edges |
+| `algorithms/src/fixed_point_and_floating_point/fixed_point_maths.rs` | fixed point, floating point, precision | deterministic math, finance, embedded |
 
 ## Data structures
 
-| File | Keywords |
-|------|----------|
-| `data_structures/src/binary_trees/std_binary_trees.rs` | BTreeMap, BTreeSet, red-black tree |
-| `data_structures/src/binary_trees/custom_bt/*.rs` | binary tree, recursion, tree traversal |
-| `data_structures/src/simple_structs/vecs_arrays_slices.rs` | Vec, array, slice |
-| `data_structures/src/simple_structs/linked_lists.rs` | linked list, Node, next pointer |
-| `data_structures/src/simple_structs/stacks.rs` | stack, LIFO, push, pop |
-| `data_structures/src/simple_structs/queues.rs` | queue, FIFO |
-| `data_structures/src/simple_structs/hash_maps_and_sets.rs` | HashMap, HashSet |
-| `data_structures/src/sliding_window.rs` | sliding window, substring, O(n) |
-| `data_structures/src/lsm_trees.rs` | LSM tree, log-structured merge |
+| File | Keywords | Use when |
+|------|----------|----------|
+| `data_structures/src/binary_trees/std_binary_trees.rs` | BTreeMap, BTreeSet, red-black tree | sorted keys, range queries, ordered iteration |
+| `data_structures/src/binary_trees/custom_bt/*.rs` | binary tree, recursion, tree traversal | hierarchical data, search tree |
+| `data_structures/src/simple_structs/vecs_arrays_slices.rs` | Vec, array, slice | dynamic array, random access, push/pop at end |
+| `data_structures/src/simple_structs/linked_lists.rs` | linked list, Node, next pointer | O(1) merge/split, lock-free queue, intrusive list |
+| `data_structures/src/simple_structs/stacks.rs` | stack, LIFO, push, pop | undo, expression parsing, DFS |
+| `data_structures/src/simple_structs/queues.rs` | queue, FIFO | task queue, BFS, producer-consumer |
+| `data_structures/src/simple_structs/hash_maps_and_sets.rs` | HashMap, HashSet | fast lookup by key, uniqueness, O(1) contains |
+| `data_structures/src/sliding_window.rs` | sliding window, substring, O(n) | max subarray, substring, contiguous window |
+| `data_structures/src/lsm_trees.rs` | LSM tree, log-structured merge | write-heavy storage, databases, leveled compaction |
 
 ## Hackerrank / Leetcode
 
