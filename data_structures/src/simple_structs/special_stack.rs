@@ -126,17 +126,24 @@ mod tests {
 }
 
 // ---------------------------------------------------------------------------
-// Space complexity analysis (notes to write up for recruiter)
+// Time and Space complexity analysis 
 // ---------------------------------------------------------------------------
 //
-// Write your reasoning here:
-// - If you use an auxiliary stack (or min-per-element), what extra space
-//   do you need relative to the number of stored elements n?
-// - Distinguish between:
-//   - Space used to store the actual elements (the stack itself).
-//   - Extra / auxiliary space used only to support O(1) get_min().
+// Time complexity: push, pop, is_empty, get_min are all O(1) *per operation*
+// because we use VecDeque (push_back / pop_back / back are O(1)).
+//
+// Space complexity is about total memory as n (number of elements) grows:
+//
+// - **Storage for the stack itself:** Θ(n). We store each element in `data`.
+//
+// - **Auxiliary overhead (for get_min):** The `mins` stack. We push to `mins`
+//   only when we see a new minimum (or tie). So:
+//   - **Worst case:** O(n). If elements arrive in decreasing order (e.g. 5,4,3,2,1),
+//     every push is a new minimum, so `mins` holds n elements.
+//   - **Best case:** O(1). If elements arrive in increasing order (e.g. 1,2,3,4,5),
+//     we only ever push once to `mins`.
 //
 // Final space complexity:
-// - Total space as a function of n:
-// - Auxiliary overhead (beyond storing the elements themselves):
+// - **Total space:** O(n). At most we store n elements in `data` and up to n in `mins`.
+// - **Auxiliary overhead:** O(n) worst case, O(1) best case (depending on push order).
 
