@@ -11,6 +11,7 @@ members = [
     "custom-macros",
     "one_brc",
     "pulsar-take-home",
+    "mock-pr-reviews",
 ]
 resolver = "3"
 
