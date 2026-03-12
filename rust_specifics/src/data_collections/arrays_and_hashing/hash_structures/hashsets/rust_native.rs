@@ -14,10 +14,11 @@ Time complexity:
 2. Search - average O(1), worst case O(n)
 3. Delete - average O(1), worst case O(n)
 
-
 Hashset vs vec:
 Use hashset when you want fast look ups, uniqueness/ set operations like union (combine sets and remove duplicates)
 Use vec when - order matters, you want index access, duplicates are allowed or you want small set sizes
+
+In rust a hashet is a wrapper around a hashmap, where they key is the value in the hashset and the value is () meaning zero sized type.
 */
 
 // Implementing my own hashset - what functions do we need?

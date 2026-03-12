@@ -3,8 +3,16 @@ members = [
     "algorithms",
     "data_structures",
     "rust_specifics",
-    "leetcode_questions"
-, "hackerrank", "design_patterns", "solana", "low-level", "custom-macros", "one_brc"]
+    "leetcode_questions",
+    "hackerrank",
+    "design_patterns",
+    "solana",
+    "low-level",
+    "custom-macros",
+    "one_brc",
+    "pulsar-take-home",
+    "mock-pr-reviews",
+]
 resolver = "3"
 
 [workspace.dependencies]

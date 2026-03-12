@@ -1,6 +1,27 @@
 # Indexing
 
-The purpose of this document is to show how indexing
+## What is an index?
+
+An **index** is a separate data structure (stored on disk) that holds copies of selected column values from a table, organised so the database can find rows that match a condition **without scanning every row**. Conceptually it’s like the index at the back of a book: it points to where the data lives (e.g. which pages/blocks) instead of you reading the whole table. The table itself is unchanged; the index is an auxiliary structure that speeds up lookups on one or more columns.
+
+## Advantages of using an index
+
+- **Faster reads** — Queries that filter, join, or sort on indexed columns can use the index to jump to relevant rows (or pages) instead of doing a full table scan. Especially important on large tables.
+- **Faster sorts and grouping** — `ORDER BY` and `GROUP BY` on indexed columns can often be satisfied from the index order, avoiding an extra sort step.
+- **Better join performance** — Indexes on join keys let the planner use index nested loops or similar strategies instead of scanning the whole inner table.
+- **Enforces uniqueness** — A unique index guarantees no duplicate values in that column (or combination of columns), and gives the database a fast way to check that on insert/update.
+
+## Disadvantages of using an index
+
+- **Slower writes** — Every `INSERT`, `UPDATE`, or `DELETE` may need to update one or more indexes. More indexes ⇒ more work per write.
+- **Extra storage** — Indexes are stored on disk (and often cached in memory). Multiple or wide indexes increase total storage and memory use.
+- **Not always used** — The planner may choose a full table scan if it thinks the table is small, or if the query doesn’t match the index (e.g. functions on the column, wrong column order in a composite index). Indexes only help when the query can use them.
+- **Maintenance** — Indexes can become bloated or fragmented; some databases need periodic rebuilds or `REINDEX` for best performance.
+- **Wrong index choice** — Too many indexes give the planner more choices and can lead to suboptimal plans or lock contention; indexing “everything” is rarely a win.
+
+---
+
+The purpose of this document is to show how indexing works in practice.
 
 ## Start up PostgreSQL
 

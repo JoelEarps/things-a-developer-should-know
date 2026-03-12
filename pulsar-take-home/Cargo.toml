@@ -1,0 +1,7 @@
+[package]
+name = "pulsar-take-home"
+version = "0.1.0"
+edition = "2021"
+description = "Pulsar take-home: swap two integers without a third variable"
+
+[dependencies]

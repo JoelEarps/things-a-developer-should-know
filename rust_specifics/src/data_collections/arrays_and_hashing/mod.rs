@@ -1,5 +1,4 @@
-mod hash_maps;
-mod hash_sets;
+mod hash_structures;
 mod searching_collections;
 mod slices;
 pub mod vector;
