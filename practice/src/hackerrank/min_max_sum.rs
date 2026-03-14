@@ -11,7 +11,7 @@ use std::io::{self, BufRead};
 fn miniMaxSum(arr: &[i32]) {
     let mut sum: i64 = 0;
     let mut min = arr[0];
-    let mut max = arr[0]; I 
+    let mut max = arr[0];
 
     for &value in arr.iter() {
         sum += value as i64;

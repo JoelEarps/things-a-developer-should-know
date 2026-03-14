@@ -1,5 +1,5 @@
-mod search_alogrithms;
-mod sort_alogrithms;
+mod search_algorithms;
+mod sort_algorithms;
 mod time_complexity_explained;
 
 fn main() {

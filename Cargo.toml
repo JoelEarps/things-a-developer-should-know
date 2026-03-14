@@ -2,16 +2,14 @@
 members = [
     "algorithms",
     "data_structures",
-    "rust_specifics",
-    "leetcode_questions",
-    "hackerrank",
+    "rust",
+    "practice",
     "design_patterns",
-    "solana",
     "low-level",
-    "custom-macros",
-    "one_brc",
-    "pulsar-take-home",
-    "mock-pr-reviews",
+    "projects/solana",
+    "projects/pulsar-take-home",
+    "projects/one_brc",
+    "projects/custom-macros",
 ]
 resolver = "3"
 
