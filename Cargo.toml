@@ -4,6 +4,7 @@ members = [
     "data_structures",
     "rust",
     "practice",
+    "leetcode",
     "design_patterns",
     "low-level",
     "projects/solana",

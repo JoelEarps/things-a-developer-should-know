@@ -7,6 +7,7 @@ Central index for documentation in this repo.
 | Doc | Purpose |
 |-----|--------|
 | [**RUST_EXPERT_LEARNING_TODO.md**](RUST_EXPERT_LEARNING_TODO.md) | **Rust expert path** — phased checklist (core → async → unsafe → performance), with file references and stub list. |
+| [**ALGORITHMS_AND_DS_INDEX.md**](ALGORITHMS_AND_DS_INDEX.md) | Every algorithm/DS file + coverage gaps vs Pareto. |
 | [**IMPLEMENTATION_TODO.md**](IMPLEMENTATION_TODO.md) | Implementation tasks: algorithms, data structures, low-level (arena, object pool, sliding window, time complexity, etc.). |
 | [**KEYWORDS_INDEX.md**](KEYWORDS_INDEX.md) | Search index: which file to open for a given topic (e.g. “binary search”, “HashMap”, “Pin”). |
 
