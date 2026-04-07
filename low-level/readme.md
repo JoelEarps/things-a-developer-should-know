@@ -15,3 +15,7 @@ https://www.youtube.com/watch?v=tSAcFKW9lM8
 https://www.youtube.com/watch?v=n-AsCx0142Y
 
 ## Build your own LRU Cache
+
+Jon Gengst
+
+The Cost of Concurrency Coordination with Jon Gjengset
