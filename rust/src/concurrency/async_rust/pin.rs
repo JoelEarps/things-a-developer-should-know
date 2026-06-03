@@ -3,15 +3,13 @@
 // TODO: SHow this here
 // Self referencing
 
-
 // Pin Docs
 //
 
 // Box pin
 
-
 // Tasks schedulaars and executers
-// Break work into tasks (futures), and then a schedular to decide when to execute 
+// Break work into tasks (futures), and then a schedular to decide when to execute
 // Executor then is told what to execute by wakers
 
 // Future trait

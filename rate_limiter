@@ -1,1 +1,15 @@
 Rate limiter with sliding window
+
+Approaches 
+
+1. Fixed window
+2. Sliding Window
+3. SLiding Counter
+4. Token Bucket
+
+
+trait based design here
+
+Rate limiter - takes in a generic which is algorithm and this then , maybe use builder pattern here
+
+

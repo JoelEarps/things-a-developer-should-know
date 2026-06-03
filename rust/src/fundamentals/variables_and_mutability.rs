@@ -1,6 +1,6 @@
 // Variable Types
 // Scalar Types
-fn scalar_types_demo(){
+fn scalar_types_demo() {
     // Integers
     // 8-bit signed integer
     let eight_bit_signed_max: i8 = 127; // i8::MAX
@@ -36,12 +36,14 @@ fn scalar_types_demo(){
 
     // 128-bit signed integer
     let one_twenty_eight_bit_signed_max: i128 = 170_141_183_460_469_231_731_687_303_715_884_105_727; // i128::MAX
-    let one_twenty_eight_bit_signed_min: i128 = -170_141_183_460_469_231_731_687_303_715_884_105_728; // i128::MIN
+    let one_twenty_eight_bit_signed_min: i128 =
+        -170_141_183_460_469_231_731_687_303_715_884_105_728; // i128::MIN
 
     // 128-bit unsigned integer
-    let one_twenty_eight_bit_unsigned_max: u128 = 340_282_366_920_938_463_463_374_607_431_768_211_455; // u128::MAX
+    let one_twenty_eight_bit_unsigned_max: u128 =
+        340_282_366_920_938_463_463_374_607_431_768_211_455; // u128::MAX
     let one_twenty_eight_bit_unsigned_min: u128 = 0; // u128::MIN
-    
+
     // Integer Literals
 
     let integer_with_literal_suffix: u8 = 1u8;
@@ -66,7 +68,7 @@ fn scalar_types_demo(){
     let y: f32 = 3.0; // f32
     let y: f64 = 2.999; // f64
 
-    // Boolean 
+    // Boolean
     let true_value: bool = true;
     let false_value: bool = false;
 
@@ -77,7 +79,7 @@ fn scalar_types_demo(){
     let japanese_symbol = '会'; // Chinese, Japanese, Korean supported as 4 bytes, c++ 1 byte
 }
 
-fn compound_types_demo(){
+fn compound_types_demo() {
     // Tuples
     // Type annotation is optional
     let tuple = (500, 6.4, 1);
@@ -114,7 +116,7 @@ const TEST_CONSTANT: u32 = 111;
 const TEST_CONSTANT_EXPRESSION: u32 = 1 * 1;
 
 // Shadowing
-fn shadowing_demo(){
+fn shadowing_demo() {
     let x = 5;
     println!("The value of x is: {x}");
     let x = x + 1;
@@ -126,5 +128,4 @@ fn shadowing_demo(){
     }
 
     println!("The value of x is: {x}");
-
 }

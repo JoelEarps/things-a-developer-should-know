@@ -1,8 +1,8 @@
 // Keywords: atomic, mutex, lock-free, concurrency, ordering, SeqCst, Relaxed, Acquire, Release
-/// Atomic operations refer to the smallest programmable unit. In concurrent programming this typically means that once the operation 
-/// is started it either finishes (or doesn't) and doesn't become visible to the rest of the program until that happens. This therefore guarantees safety across concurrent threads/ operations.
-/// Ordering refers 
-/// For rust the ordering enums are available as part of the std lib.
+// Atomic operations refer to the smallest programmable unit. In concurrent programming this typically means that once the operation
+// is started it either finishes (or doesn't) and doesn't become visible to the rest of the program until that happens. This therefore guarantees safety across concurrent threads/ operations.
+// Ordering refers
+// For rust the ordering enums are available as part of the std lib.
 // Relaxed
 // Summary: No ordering guarantees—just atomicity.
 // Use when: You don’t care about the order of memory operations, just that updates are atomic.
@@ -27,6 +27,4 @@
 // Summary: Strongest ordering—operations appear in the same order across all threads.
 // Use when: You want simplicity and maximum safety.
 // Avoid when: You need performance and can tolerate weaker ordering.
-
-
-/// Show examples for all three
+// https://whenderson.dev/blog/implementing-atomics-in-rust/

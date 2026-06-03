@@ -10,4 +10,3 @@ pub fn encode(_strs: Vec<String>) -> String {
 pub fn decode(_s: String) -> Vec<String> {
     unimplemented!("Boilerplate only; implement decode")
 }
-

@@ -39,7 +39,7 @@ String problems - longest substring without repeating characters
 ### Variable size window problems
 1. Rate limiting - N requests per T seconds, window - time based sliding approach, queue of timestamps per user `../hackerrank/src/one_hour_tests/write_a_rate_limiter.rs`
 2. Minimum size subarray sum
-3. Longest substring with a most k distinct characters 
+3. Longest substring with a most k distinct characters
 
 
 Complexity analysis:
@@ -58,17 +58,17 @@ It is a primarily a data structure problem not an algorithm pro
 TODO: Link hackerrank questions for these problems and files to these
 */
 
-    // Fixed size sliding window:
-    // 1. Initialize: left = 0, right = 0
-    // 2. Expand window to size k (move right pointer)
-    // 3. Process first window
-    // 4. While right < array.length:
-    //      a. Remove left element from window
-    //      b. Add right element to window
-    //      c. Move left and right pointers right by 1
-    //      d. Process current window
-    // 5. Done
-fn fixed_size_sliding_window(){
+// Fixed size sliding window:
+// 1. Initialize: left = 0, right = 0
+// 2. Expand window to size k (move right pointer)
+// 3. Process first window
+// 4. While right < array.length:
+//      a. Remove left element from window
+//      b. Add right element to window
+//      c. Move left and right pointers right by 1
+//      d. Process current window
+// 5. Done
+fn fixed_size_sliding_window() {
     todo!();
 }
 
@@ -84,7 +84,6 @@ fn fixed_size_sliding_window(){
 //      e. Check if current window is valid solution
 //      f. Update best answer if needed
 // 3. Return best answer
-fn variable_size_sliding_window(){
+fn variable_size_sliding_window() {
     todo!();
 }
-

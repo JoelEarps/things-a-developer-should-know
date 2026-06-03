@@ -34,7 +34,7 @@ Constraints:
 
 use std::collections::HashSet;
 
-/// What does this teach you, best 
+/// What does this teach you, best
 fn find_duplicates(nums: Vec<i32>) -> bool {
     let mut value_store = HashSet::new();
     let mut duplicate = false;
@@ -73,8 +73,17 @@ mod test {
 
     #[test]
     fn test_more_idiomatic_version_for_find_duplciates() {
-        assert_eq!(more_idiomatic_version_for_find_duplciates(vec![1, 2, 3, 1]), true);
-        assert_eq!(more_idiomatic_version_for_find_duplciates(vec![1, 2, 3, 4]), false);
-        assert_eq!(more_idiomatic_version_for_find_duplciates(vec![1, 1, 1, 3, 3, 4, 3, 2, 4, 2]), true);
+        assert_eq!(
+            more_idiomatic_version_for_find_duplciates(vec![1, 2, 3, 1]),
+            true
+        );
+        assert_eq!(
+            more_idiomatic_version_for_find_duplciates(vec![1, 2, 3, 4]),
+            false
+        );
+        assert_eq!(
+            more_idiomatic_version_for_find_duplciates(vec![1, 1, 1, 3, 3, 4, 3, 2, 4, 2]),
+            true
+        );
     }
 }

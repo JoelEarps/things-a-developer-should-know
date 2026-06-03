@@ -25,7 +25,6 @@
 
 use std::collections::VecDeque;
 
-
 /// Thought process, there are two main problems:
 /// 1. We need a structure that can store the order in which values are pushed or popped onto the stack
 /// 2. We need a structure that can store the minimum values in order i.e store in ascending order
@@ -68,10 +67,10 @@ where
     /// mins = [18,15]; get_min() = 15; pop twice (16, then 15) → pop mins twice →
     /// mins = [18]; get_min() = 18.
     pub fn push(&mut self, value: T) {
-       self.data.push_back(value);
-       if self.mins.is_empty() || value <= *self.mins.back().unwrap() {
-        self.mins.push_back(value);
-       }
+        self.data.push_back(value);
+        if self.mins.is_empty() || value <= *self.mins.back().unwrap() {
+            self.mins.push_back(value);
+        }
     }
 
     /// Pop the top value from the stack.
@@ -126,7 +125,7 @@ mod tests {
 }
 
 // ---------------------------------------------------------------------------
-// Time and Space complexity analysis 
+// Time and Space complexity analysis
 // ---------------------------------------------------------------------------
 //
 // Time complexity: push, pop, is_empty, get_min are all O(1) *per operation*
@@ -146,4 +145,3 @@ mod tests {
 // Final space complexity:
 // - **Total space:** O(n). At most we store n elements in `data` and up to n in `mins`.
 // - **Auxiliary overhead:** O(n) worst case, O(1) best case (depending on push order).
-

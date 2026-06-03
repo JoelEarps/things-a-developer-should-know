@@ -1,4 +1,4 @@
-fn mock_if_statement()-> bool {
+fn mock_if_statement() -> bool {
     let fake_num = 3;
     if fake_num == 3 {
         true
@@ -16,29 +16,27 @@ fn ternary_in_rust() {
     println!("The value of number is: {number}");
 }
 
-fn for_in_loop(){
-
-    let a = [0;10];
+fn for_in_loop() {
+    let a = [0; 10];
     for item in a {
         println!("Iterating, value is {item}");
     }
-
 }
 
-fn while_loop(){
+fn while_loop() {
     let mut counter = 0;
     let total = 5;
     while counter < total {
         println!("Counted {counter} times");
-        counter+=1;
+        counter += 1;
     }
 }
 
-fn loop_with_labels(){
+fn loop_with_labels() {
     let mut count = 0;
-   let _test_loop_return = 'test_counter: loop {
-    println!("count = {count}");
-    let mut remaining = 10;
+    let _test_loop_return = 'test_counter: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
         loop {
             println!("remaining = {remaining}");
             if remaining == 9 {
@@ -51,5 +49,5 @@ fn loop_with_labels(){
         }
         count += 1;
     };
-        println!("End count = {count}");
+    println!("End count = {count}");
 }

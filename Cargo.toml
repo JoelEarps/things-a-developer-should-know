@@ -11,6 +11,7 @@ members = [
     "projects/pulsar-take-home",
     "projects/one_brc",
     "projects/custom-macros",
+    "hackerrank"
 ]
 resolver = "3"
 

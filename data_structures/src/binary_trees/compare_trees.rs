@@ -116,7 +116,6 @@ impl PartialEq for TreeNode {
     }
 }
 
-
 /// Why is this empty
 impl Eq for TreeNode {}
 
@@ -130,16 +129,8 @@ mod tests {
         // Tree:    1
         //         / \
         //        2   3
-        let tree_a = TreeNode::node(
-            1,
-            TreeNode::leaf(2),
-            TreeNode::leaf(3),
-        );
-        let tree_b = TreeNode::node(
-            1,
-            TreeNode::leaf(2),
-            TreeNode::leaf(3),
-        );
+        let tree_a = TreeNode::node(1, TreeNode::leaf(2), TreeNode::leaf(3));
+        let tree_b = TreeNode::node(1, TreeNode::leaf(2), TreeNode::leaf(3));
         assert_eq!(tree_a, tree_b);
     }
     /// Case 1b: two identical trees with greater depth → true.
@@ -218,6 +209,3 @@ mod tests {
 //   we have n nested calls.
 // - **Best case:** O(log n). A balanced tree has height h ≈ log₂(n), so the stack
 //   depth is logarithmic.
-
-
-
